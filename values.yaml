@@ -1,19 +1,20 @@
 env:
   AWS_REGION: us-east-2
-  AWS_ACCESS_KEY_ID: SET ME
-  AWS_SECRET_ACCESS_KEY: SET ME
+  AWS_ACCESS_KEY_ID: # CHANGE ME
+  AWS_SECRET_ACCESS_KEY: # CHANGE ME
 
 # see doc
-vpcId: SET ME
+vpcId: # CHANGE ME
 
 clusterName: poc-waf
 enableShield: true
 enableWafv2: true
 image:
   repository: amazon/aws-alb-ingress-controller
+  tag: v2.1.3
 podSecurityContext:
   fsGroup: null
 region: us-east-2
 serviceAccount:
   name: aws-load-balancer-controller
-vpcId:
+

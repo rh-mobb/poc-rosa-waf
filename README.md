@@ -47,6 +47,12 @@ Network Load Balancers in IP mode to satisfy Kubernetes service objects of type 
     aws iam create-user --user-name aws-lb-controller  --query User.Arn --output text
     ```
 
+1. Attach policy to user
+
+    ```bash
+    aws iam attach-user-policy --user-name aws-lb-controller --policy-arn ${POLICY_ARN}
+    ```
+
 1. Create access key and save the output (Paste the `AccessKeyId` and `SecretAccessKey` into `values.yaml`)
 
     ```bash
