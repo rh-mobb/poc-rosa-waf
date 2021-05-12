@@ -1,14 +1,14 @@
 # This is a POC of ROSA with a AWS WAF service
 
-See https://issues.redhat.com/browse/CTONET-858 for a similar request
+**This is not endorsed or supported in any way by Red Hat, YMMV**
 
 [Here](https://iamondemand.com/blog/elb-vs-alb-vs-nlb-choosing-the-best-aws-load-balancer-for-your-needs/)'s a good overview of AWS LB types and what they support
 
 ## Problem Statement
 
-1. Customer requires WAF (Web Application Firewall) in front of their workloads running on OpenShift (ROSA)
+1. Operator requires WAF (Web Application Firewall) in front of their workloads running on OpenShift (ROSA)
 
-1. Customer does not want WAF running on OpenShift to ensure that OCP resources do not experience Denial of Service through handling the WAF
+1. Operator does not want WAF running on OpenShift to ensure that OCP resources do not experience Denial of Service through handling the WAF
 
 ## Proposed Solution
 
@@ -67,6 +67,13 @@ Network Load Balancers in IP mode to satisfy Kubernetes service objects of type 
       | jq -r | grep SubnetId
     ```
 
+1. Add tags to those subnets (change the subnet ids in the resources line)
+
+    ```bash
+      aws ec2 create-tags \
+        --resources subnet-0fd57669a80eb7596 subnet-0aa9967e8767d792f subnet-0982bb73ca67d61de \
+        --tags Key=kubernetes.io/role/elb,Value=   Key=kubernetes.io/cluster/poc-waf,Value=shared
+    ```
 1. Create a namespace for the controller
 
     ```bash
