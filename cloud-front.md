@@ -23,6 +23,7 @@
     ```bash
     EMAIL=username.taken@gmail.com
     DOMAIN=waf.mobb.ninja
+    ```
 
 ## Certificate and DNS
 
@@ -36,7 +37,7 @@
       --agree-tos \
       --manual-public-ip-logging-ok \
       -d "*.$DOMAIN"
-  ```
+    ```
 
 1. Follow Certbot's instructions to create a DNS TXT record.  certificate records will be saved on your system, in my case in `/etc/letsencrypt/live/waf.mobb.ninja/`. set that as an enviroment variable.
 
@@ -98,7 +99,7 @@
     * AWS WAF Web ACL: demo-waf-acl
     * Alternate Domain Names: *.<domain>
     * Custom SSL Certificate: <the one you just imported>
-    * Origin Request Policy: create a new policy whitelist: Origin, user-agent, referer, host
+    * Origin Request Policy: create a new policy whitelist: Origin, user-agent, referer, host (**IMPORTANT**)
 
 1. Hit **Create** then wait until the **Status** is *Ready*.
 
