@@ -62,6 +62,10 @@ Network Load Balancers in IP mode to satisfy Kubernetes service objects of type 
     ACCESS_KEY=$(aws iam create-access-key --user-name aws-lb-controller)
     ```
 
+1. Attach policy to user
+
+    ```bash
+
 1. Paste the `AccessKeyId` and `SecretAccessKey` into values.yaml
 
 1. tag your public subnet with ``
