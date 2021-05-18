@@ -16,9 +16,9 @@
 
 1. Deploy secondary Ingress solution (+TLS +DNS) that uses an AWS ALB
 
+    * **Todo** Configure TLS + DNS for that Ingress (Lets Encrypt + WildCard DNS)
 
-**Todo** Configure TLS + DNS for that Ingress (Lets Encrypt + WildCard DNS)
-
+![](./alb.drawio.png)
 
 ## Deployment
 

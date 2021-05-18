@@ -1,5 +1,7 @@
 # Using CloudFront + WAF
 
+![](./cf.drawio.png)
+
 ## Prepartion
 
 1. Create a cluster
